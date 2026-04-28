@@ -1,4 +1,4 @@
-function [t,x]=meuler(f,intervalo,x0,N)
+function [t,x]=mrk3(f,intervalo,x0,N)
 % La función meuler resuelve un problema de valor inicial de la forma
 % x'(t)=f(t,x(t)) en [t0,T]
 % x(t0)=x0,
@@ -16,17 +16,24 @@ function [t,x]=meuler(f,intervalo,x0,N)
 % t: vector, de tipo (N+1,1), de nodos de [t0,T] donde se va a aproximar la solución
 % x: matriz, de tipo (N+1,n), de valores de la solución aproximada en los nodos
 
+% --- Inicialización correcta ---
 
-n = size(x0,2); %dimension vector
+n = size(x0,2);
 t0 = intervalo(1);
 T = intervalo(2);
 h = (T-t0)/N;
 
-t = linspace(t0,T,N+1)'; %vector columna
-x = zeros(N+1,n); %N = filas y n= columnas
-x(1,:) = x0';
+t = linspace(t0,T,N+1)';
 
-for i =1:N
-    x(i+1,:) = x(i,:) + h*f(t(i),x(i,:))';
+x = zeros(N+1,n);
+x(1,:) = x0;
+
+for i = 1:N
     
+    F1 = f(t(i),x(i,:)');
+    F2 = f(t(i)+h/2, x(i,:)'+h*F1/2);
+    F3 = f(t(i) + 3*h/4, x(i,:)'+3*h*F2/4);
+
+    x(i+1,:) = x(i,:) + h*(2*F1'+3*F2'+4*F3')/9;
+
 end
