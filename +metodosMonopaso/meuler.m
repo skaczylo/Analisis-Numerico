@@ -17,16 +17,4 @@ function [t,x]=meuler(f,intervalo,x0,N)
 % x: matriz, de tipo (N+1,n), de valores de la solución aproximada en los nodos
 
 
-n = size(x0,2); %dimension vector
-t0 = intervalo(1);
-T = intervalo(2);
-h = (T-t0)/N;
 
-t = linspace(t0,T,N+1)'; %vector columna
-x = zeros(N+1,n); %N = filas y n= columnas
-x(1,:) = x0';
-
-for i =1:N
-    x(i+1,:) = x(i,:) + h*f(t(i),x(i,:))';
-    
-end

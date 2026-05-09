@@ -1,0 +1,11 @@
+%Graficas
+
+n = size(x,2);
+
+if n == 1
+    figure
+    plot(t,x);
+eli
+
+
+
