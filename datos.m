@@ -4,4 +4,6 @@ intervalo = [0, 10];
 x0 = [0; 1];
 N = 1000;
 sol_exacta = @(t) [exp(-0.1.*t).*sin(2*t); exp(-0.1.*t).*cos(2.*t)];
+a = 1;
+b = 4;
 

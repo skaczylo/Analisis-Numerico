@@ -1,0 +1,18 @@
+# MATLAB autoguardados y temporales
+*.asv
+*.m~
+*.autosave
+slprj/
+sccprj/
+*.slxc
+
+# Restos de merge / parches
+*.orig
+*.rej
+
+# Compilados MEX
+*.mex*
+
+# Sistema operativo
+.DS_Store
+Thumbs.db

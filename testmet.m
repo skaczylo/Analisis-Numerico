@@ -8,7 +8,7 @@ function testmet(metodo)
     close all;
 
     datos; 
-    [t, x] = metodo(f, intervalo, x0, N);
+    [t, x] = metodo(f, intervalo, x0, N,a,b);
     graficas;
 
 end
